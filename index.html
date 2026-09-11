@@ -1010,77 +1010,38 @@
 
 
     .contact-section{
-      margin-top:88px;
-      padding:42px 44px;
-      border-radius:28px;
-      background:#fff;
-      border:1px solid var(--line);
+      margin-top:72px;
+      padding:26px 0 6px;
+      border-top:1px solid var(--line);
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:28px;
-      box-shadow:0 12px 36px rgba(23,26,33,.05);
+      gap:20px;
     }
 
-    .contact-copy small{
-      display:block;
-      color:var(--accent);
+    .contact-label{
+      color:var(--muted);
       font-size:12px;
       font-weight:800;
-      letter-spacing:.08em;
-      margin-bottom:9px;
-    }
-
-    .contact-copy h2{
-      font-size:30px;
-      line-height:1.25;
-      letter-spacing:-.04em;
-    }
-
-    .contact-copy p{
-      margin-top:10px;
-      color:var(--muted);
-      font-size:14px;
+      letter-spacing:.12em;
     }
 
     .contact-email{
-      flex:0 0 auto;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:14px 18px;
-      border-radius:999px;
-      background:var(--dark);
-      color:#fff;
-      font-size:14px;
-      font-weight:800;
+      color:var(--text);
+      font-size:15px;
+      font-weight:700;
       transition:.2s ease;
     }
 
     .contact-email:hover{
-      transform:translateY(-2px);
-      opacity:.9;
+      color:var(--accent);
     }
 
-    .contact-email::after{
-      content:"↗";
-      font-size:15px;
-    }
-
-    @media (max-width:760px){
+    @media (max-width:560px){
       .contact-section{
         align-items:flex-start;
         flex-direction:column;
-        padding:30px 24px;
-      }
-
-      .contact-copy h2{
-        font-size:26px;
-      }
-
-      .contact-email{
-        width:100%;
-        justify-content:center;
+        gap:8px;
       }
     }
 
@@ -1563,11 +1524,7 @@
         </section>
       
         <section class="contact-section" id="contact">
-          <div class="contact-copy">
-            <small>CONTACT</small>
-            <h2>함께 이야기하고 싶은 일이 있다면<br>편하게 연락해주세요.</h2>
-            <p>웹 기획 · 콘텐츠 구성 · 랜딩페이지 · 프로모션 작업 문의</p>
-          </div>
+          <div class="contact-label">CONTACT</div>
           <a class="contact-email" href="mailto:ashtree429@naver.com">ashtree429@naver.com</a>
         </section>
 
