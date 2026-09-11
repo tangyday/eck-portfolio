@@ -962,9 +962,31 @@
         flex-direction:column;
       }
 
-      .banner-grid,
+      .banner-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:10px;
+      }
+
       .banner-grid.app-grid{
         grid-template-columns:1fr;
+        gap:14px;
+      }
+
+      .banner-grid:not(.app-grid) .banner-info{
+        padding:12px 11px 14px;
+      }
+
+      .banner-grid:not(.app-grid) .banner-info strong{
+        font-size:14px;
+      }
+
+      .banner-grid:not(.app-grid) .banner-info small{
+        font-size:8px;
+      }
+
+      .banner-grid:not(.app-grid) .banner-info span{
+        font-size:11px;
+        margin-top:5px;
       }
 
       .lightbox{
@@ -1378,7 +1400,7 @@
               <p>최신순 · 최근 9개 우선 노출</p>
             </div>
 
-            <div class="banner-grid" id="monthly-grid" data-page-size="12">
+            <div class="banner-grid" id="monthly-grid" data-page-size="12" data-mobile-page-size="8">
             <article class="banner-card" data-gallery="monthly" data-src="./images/events/26.11.webp" data-caption="2026년 11월 이벤트">
               <div class="banner-media">
                 <img src="./images/events/26.11.webp" alt="2026년 11월 이벤트 배너" loading="lazy">
@@ -1539,7 +1561,7 @@
               <p>캠페인 · 프로모션 · 안내 배너</p>
             </div>
 
-            <div class="banner-grid" id="other-grid" data-page-size="8">
+            <div class="banner-grid" id="other-grid" data-page-size="8" data-mobile-page-size="6">
               <article class="banner-card" data-gallery="other" data-src="./images/banners/other-banner-01.webp" data-caption="평생교육이용권 신청">
                 <div class="banner-media">
                   <img src="./images/banners/other-banner-01.webp" alt="평생교육이용권 신청" loading="lazy">
@@ -1604,7 +1626,7 @@
               <p>앱스토어 · 플레이스토어 등록용 이미지</p>
             </div>
 
-            <div class="banner-grid app-grid" id="app-grid" data-page-size="5">
+            <div class="banner-grid app-grid" id="app-grid" data-page-size="5" data-mobile-page-size="1">
 <article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-01.webp" data-caption="온라인강좌 어플 스크린샷 01">
                 <div class="banner-media">
                   <img src="./images/app/app-shot-01.webp" alt="온라인강좌 어플 스크린샷 01" loading="lazy">
@@ -1740,9 +1762,16 @@
         if (!grid || !pagination) return;
 
         const cards = [...grid.querySelectorAll('.banner-card')];
-        const pageSize = Number(grid.dataset.pageSize || 8);
-        const totalPages = Math.max(1, Math.ceil(cards.length / pageSize));
+        const desktopPageSize = Number(grid.dataset.pageSize || 8);
+        const mobilePageSize = Number(grid.dataset.mobilePageSize || desktopPageSize);
         let currentPage = 1;
+        let lastPageSize = null;
+
+        const getPageSize = () => (
+          window.matchMedia('(max-width: 560px)').matches
+            ? mobilePageSize
+            : desktopPageSize
+        );
 
         function makeButton(label, page, active = false, disabled = false) {
           const btn = document.createElement('button');
@@ -1768,6 +1797,11 @@
         }
 
         function render() {
+          const pageSize = getPageSize();
+          const totalPages = Math.max(1, Math.ceil(cards.length / pageSize));
+
+          if (currentPage > totalPages) currentPage = totalPages;
+
           const start = (currentPage - 1) * pageSize;
           const end = start + pageSize;
 
@@ -1776,6 +1810,13 @@
           });
 
           pagination.innerHTML = '';
+
+          if (totalPages <= 1) {
+            pagination.style.display = 'none';
+            return;
+          }
+
+          pagination.style.display = 'flex';
 
           pagination.appendChild(
             makeButton('‹', Math.max(1, currentPage - 1), false, currentPage === 1)
@@ -1790,7 +1831,21 @@
           pagination.appendChild(
             makeButton('›', Math.min(totalPages, currentPage + 1), false, currentPage === totalPages)
           );
+
+          lastPageSize = pageSize;
         }
+
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(() => {
+            const nextPageSize = getPageSize();
+            if (nextPageSize !== lastPageSize) {
+              currentPage = 1;
+              render();
+            }
+          }, 120);
+        });
 
         render();
       }
