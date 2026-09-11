@@ -610,6 +610,127 @@
       margin-bottom:8px;
     }
 
+
+    .gallery-section{
+      margin-top:92px;
+    }
+
+    .gallery-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:28px;
+    }
+
+    .gallery-head h2{
+      font-size:32px;
+      letter-spacing:-.04em;
+    }
+
+    .gallery-head p{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .banner-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .banner-card{
+      overflow:hidden;
+      border-radius:20px;
+      border:1px solid var(--line);
+      background:#fff;
+      transition:.26s ease;
+      box-shadow:0 1px 0 rgba(255,255,255,.8) inset;
+    }
+
+    .banner-card:hover{
+      transform:translateY(-5px);
+      box-shadow:var(--shadow);
+    }
+
+    .banner-media{
+      position:relative;
+      aspect-ratio:1/1;
+      overflow:hidden;
+      background:
+        linear-gradient(135deg,#f2f4f8,#ffffff);
+      display:grid;
+      place-items:center;
+    }
+
+    .banner-media::before{
+      content:"EVENT BANNER";
+      position:absolute;
+      z-index:0;
+      color:#c8ced8;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.12em;
+    }
+
+    .banner-media img{
+      position:relative;
+      z-index:1;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transition:transform .32s ease;
+    }
+
+    .banner-card:hover .banner-media img{
+      transform:scale(1.025);
+    }
+
+    .banner-info{
+      padding:18px 18px 20px;
+    }
+
+    .banner-info small{
+      display:block;
+      color:var(--accent);
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.08em;
+      margin-bottom:7px;
+    }
+
+    .banner-info strong{
+      display:block;
+      font-size:17px;
+      line-height:1.4;
+      letter-spacing:-.025em;
+    }
+
+    .banner-info span{
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width:900px){
+      .banner-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+
+    @media (max-width:560px){
+      .gallery-head{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .banner-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
     .about{
       margin-top:100px;
       padding:46px;
@@ -692,6 +813,7 @@
       <a class="brand" href="./">JH PORTFOLIO<span class="brand-dot">.</span></a>
       <nav class="nav-links">
         <a href="#projects">Projects</a>
+        <a href="#event-gallery">Gallery</a>
         <a href="#about">About</a>
       </nav>
     </div>
@@ -793,6 +915,185 @@
           </div>
 
         </div>
+
+
+        <section class="gallery-section" id="event-gallery">
+          <div class="gallery-head">
+            <div>
+              <h2>Event Banner Gallery</h2>
+            </div>
+            <p>직접 기획·제작한 프로모션 및 이벤트 배너입니다.</p>
+          </div>
+
+          <div class="banner-grid">
+
+            <article class="banner-card">
+              <div class="banner-media">
+                <img src="./images/events/26.11.webp" alt="2026년 11월 이벤트 배너" loading="lazy">
+              </div>
+              <div class="banner-info">
+                <small>EVENT DESIGN · 2026.11</small>
+                <strong>2026년 11월 이벤트</strong>
+                <span>프로모션 기획 · 이벤트 배너</span>
+              </div>
+            </article>
+
+            <article class="banner-card">
+              <div class="banner-media">
+                <img src="./images/events/26.10.webp" alt="2026년 10월 이벤트 배너" loading="lazy">
+              </div>
+              <div class="banner-info">
+                <small>EVENT DESIGN · 2026.10</small>
+                <strong>2026년 10월 이벤트</strong>
+                <span>프로모션 기획 · 이벤트 배너</span>
+              </div>
+            </article>
+
+            <article class="banner-card">
+              <div class="banner-media">
+                <img src="./images/events/26.09.webp" alt="2026년 9월 이벤트 배너" loading="lazy">
+              </div>
+              <div class="banner-info">
+                <small>EVENT DESIGN · 2026.09</small>
+                <strong>2026년 9월 이벤트</strong>
+                <span>프로모션 기획 · 이벤트 배너</span>
+              </div>
+            </article>
+
+            <article class="banner-card">
+              <div class="banner-media">
+                <img src="./images/events/26.08.webp" alt="2026년 8월 이벤트 배너" loading="lazy">
+              </div>
+              <div class="banner-info">
+                <small>EVENT DESIGN · 2026.08</small>
+                <strong>2026년 8월 이벤트</strong>
+                <span>프로모션 기획 · 이벤트 배너</span>
+              </div>
+            </article>
+
+            <article class="banner-card">
+              <div class="banner-media">
+                <img src="./images/events/26.07.webp" alt="2026년 7월 이벤트 배너" loading="lazy">
+              </div>
+              <div class="banner-info">
+                <small>EVENT DESIGN · 2026.07</small>
+                <strong>2026년 7월 이벤트</strong>
+                <span>프로모션 기획 · 이벤트 배너</span>
+              </div>
+            </article>
+
+            <article class="banner-card">
+              <div class="banner-media">
+                <img src="./images/events/26.06.webp" alt="2026년 6월 이벤트 배너" loading="lazy">
+              </div>
+              <div class="banner-info">
+                <small>EVENT DESIGN · 2026.06</small>
+                <strong>2026년 6월 이벤트</strong>
+                <span>프로모션 기획 · 이벤트 배너</span>
+              </div>
+            </article>
+
+            <article class="banner-card">
+              <div class="banner-media">
+                <img src="./images/events/26.05.webp" alt="2026년 5월 이벤트 배너" loading="lazy">
+              </div>
+              <div class="banner-info">
+                <small>EVENT DESIGN · 2026.05</small>
+                <strong>2026년 5월 이벤트</strong>
+                <span>프로모션 기획 · 이벤트 배너</span>
+              </div>
+            </article>
+
+            <article class="banner-card">
+              <div class="banner-media">
+                <img src="./images/events/26.04.webp" alt="2026년 4월 이벤트 배너" loading="lazy">
+              </div>
+              <div class="banner-info">
+                <small>EVENT DESIGN · 2026.04</small>
+                <strong>2026년 4월 이벤트</strong>
+                <span>프로모션 기획 · 이벤트 배너</span>
+              </div>
+            </article>
+
+            <article class="banner-card">
+              <div class="banner-media">
+                <img src="./images/events/26.03.webp" alt="2026년 3월 이벤트 배너" loading="lazy">
+              </div>
+              <div class="banner-info">
+                <small>EVENT DESIGN · 2026.03</small>
+                <strong>2026년 3월 이벤트</strong>
+                <span>프로모션 기획 · 이벤트 배너</span>
+              </div>
+            </article>
+
+            <article class="banner-card">
+              <div class="banner-media">
+                <img src="./images/events/26.02.webp" alt="2026년 2월 이벤트 배너" loading="lazy">
+              </div>
+              <div class="banner-info">
+                <small>EVENT DESIGN · 2026.02</small>
+                <strong>2026년 2월 이벤트</strong>
+                <span>프로모션 기획 · 이벤트 배너</span>
+              </div>
+            </article>
+
+            <article class="banner-card">
+              <div class="banner-media">
+                <img src="./images/events/26.01.webp" alt="2026년 1월 이벤트 배너" loading="lazy">
+              </div>
+              <div class="banner-info">
+                <small>EVENT DESIGN · 2026.01</small>
+                <strong>2026년 1월 이벤트</strong>
+                <span>프로모션 기획 · 이벤트 배너</span>
+              </div>
+            </article>
+
+            <article class="banner-card">
+              <div class="banner-media">
+                <img src="./images/events/25.12.webp" alt="2025년 12월 이벤트 배너" loading="lazy">
+              </div>
+              <div class="banner-info">
+                <small>EVENT DESIGN · 2025.12</small>
+                <strong>2025년 12월 이벤트</strong>
+                <span>프로모션 기획 · 이벤트 배너</span>
+              </div>
+            </article>
+
+            <article class="banner-card">
+              <div class="banner-media">
+                <img src="./images/events/25.11.webp" alt="2025년 11월 이벤트 배너" loading="lazy">
+              </div>
+              <div class="banner-info">
+                <small>EVENT DESIGN · 2025.11</small>
+                <strong>2025년 11월 이벤트</strong>
+                <span>프로모션 기획 · 이벤트 배너</span>
+              </div>
+            </article>
+
+            <article class="banner-card">
+              <div class="banner-media">
+                <img src="./images/events/25.10.webp" alt="2025년 10월 이벤트 배너" loading="lazy">
+              </div>
+              <div class="banner-info">
+                <small>EVENT DESIGN · 2025.10</small>
+                <strong>2025년 10월 이벤트</strong>
+                <span>프로모션 기획 · 이벤트 배너</span>
+              </div>
+            </article>
+
+            <article class="banner-card">
+              <div class="banner-media">
+                <img src="./images/events/25.08.webp" alt="2025년 8월 이벤트 배너" loading="lazy">
+              </div>
+              <div class="banner-info">
+                <small>EVENT DESIGN · 2025.08</small>
+                <strong>2025년 8월 이벤트</strong>
+                <span>프로모션 기획 · 이벤트 배너</span>
+              </div>
+            </article>
+
+          </div>
+        </section>
 
         <section class="about" id="about">
           <div>
