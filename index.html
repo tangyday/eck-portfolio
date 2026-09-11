@@ -58,31 +58,16 @@
 
     .brand{
       display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-size:16px;
+      align-items:baseline;
+      gap:4px;
+      font-size:18px;
       font-weight:800;
-      letter-spacing:-.02em;
-    }
-
-    .brand-mark{
-      width:38px;
-      height:38px;
-      display:grid;
-      place-items:center;
-      border-radius:12px;
-      background:var(--dark);
-      color:#fff;
-      font-size:14px;
-      font-weight:900;
-      letter-spacing:-.04em;
-      box-shadow:0 8px 20px rgba(16,19,26,.12);
-    }
-
-    .brand-name{
+      letter-spacing:-.03em;
       color:var(--text);
-      letter-spacing:.08em;
-      font-size:13px;
+    }
+
+    .brand-dot{
+      color:var(--accent);
     }
 
     .nav-links{
@@ -704,7 +689,7 @@
 <body>
   <header>
     <div class="wrap nav">
-      <a class="brand" href="./"><span class="brand-mark">JH</span><span class="brand-name">PORTFOLIO</span></a>
+      <a class="brand" href="./">JH PORTFOLIO<span class="brand-dot">.</span></a>
       <nav class="nav-links">
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
