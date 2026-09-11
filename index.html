@@ -1162,8 +1162,8 @@
     }
 
     .document-head h3{
-      font-size:22px;
-      letter-spacing:-.035em;
+      font-size:32px;
+      letter-spacing:-.04em;
     }
 
     .document-head p{
@@ -2030,52 +2030,36 @@
 
   <script>
     (() => {
-      if (window.location.hash === '#documents') {
-        history.scrollRestoration = 'manual';
-        document.documentElement.style.scrollBehavior = 'auto';
+      const sectionLinks = [
+        { selector: '#projects .grid > a.card', section: 'projects' },
+        { selector: '#documents a.document-card', section: 'documents' }
+      ];
 
-        window.addEventListener('load', () => {
-          const target = document.getElementById('documents');
-          if (target) {
-            target.scrollIntoView({ behavior: 'auto', block: 'start' });
-          }
-
-          requestAnimationFrame(() => {
-            document.documentElement.style.scrollBehavior = '';
+      sectionLinks.forEach(({ selector, section }) => {
+        document.querySelectorAll(selector).forEach((link) => {
+          link.addEventListener('click', () => {
+            sessionStorage.setItem('portfolioReturnSection', section);
+            const returnUrl = `${location.pathname}${location.search}#${section}`;
+            history.replaceState(history.state, '', returnUrl);
           });
-        });
-      }
-    })();
-  </script>
-
-
-  <script>
-    (() => {
-      const projectLinks = document.querySelectorAll('#projects .grid > a.card');
-
-      projectLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-          // 뒤로가기 시 처음부터 Selected Projects 위치에서 열리도록
-          // 현재 포트폴리오 히스토리 주소에 앵커를 미리 기록합니다.
-          sessionStorage.setItem('returnToSelectedProjects', '1');
-          const returnUrl = `${location.pathname}${location.search}#projects`;
-          history.replaceState(history.state, '', returnUrl);
         });
       });
 
-      window.addEventListener('pageshow', () => {
-        if (sessionStorage.getItem('returnToSelectedProjects') !== '1' && location.hash !== '#projects') return;
+      const jumpToSection = () => {
+        const storedSection = sessionStorage.getItem('portfolioReturnSection');
+        const hashSection = location.hash.replace('#', '');
+        const section = storedSection || (['projects', 'documents'].includes(hashSection) ? hashSection : '');
+        if (!section) return;
 
-        sessionStorage.removeItem('returnToSelectedProjects');
+        sessionStorage.removeItem('portfolioReturnSection');
         history.scrollRestoration = 'manual';
 
         const root = document.documentElement;
         const previousBehavior = root.style.scrollBehavior;
         root.style.setProperty('scroll-behavior', 'auto', 'important');
 
-        const target = document.getElementById('projects');
+        const target = document.getElementById(section);
         if (target) {
-          // CSS의 smooth 설정을 타지 않도록 좌표로 즉시 이동
           window.scrollTo(0, target.offsetTop);
         }
 
@@ -2088,7 +2072,13 @@
             }
           });
         });
-      });
+      };
+
+      window.addEventListener('pageshow', jumpToSection);
+
+      if (document.readyState === 'complete') {
+        jumpToSection();
+      }
     })();
   </script>
 
