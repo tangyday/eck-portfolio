@@ -1,3 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <title>ECK온라인강좌 가이드</title>
+
+  <style>
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+      padding: 0;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+  </style>
+</head>
+<body>
 <style>
 #eckv3-widget,
 #eckv3-widget *,
@@ -790,6 +810,57 @@ html body #eckv3-widget .eckv3-searchBtn {
   background: #FFFFFF !important;
   color: #319FD3 !important;
   border: 1px solid #CBEFFA !important;
+}
+
+
+/* =========================================================
+   모바일 직접 접속 최적화
+   - viewport 적용과 함께 모바일 가독성을 보완합니다.
+   - 기존 챗봇 기능/디자인 구조는 유지합니다.
+   ========================================================= */
+@media (max-width: 640px) {
+  html body #eckv3-widget .eckv3-brandTitle {
+    font-size: 14px !important;
+  }
+  html body #eckv3-widget .eckv3-brandSub {
+    font-size: 11px !important;
+  }
+  html body #eckv3-widget .eckv3-bubble {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+  }
+  html body #eckv3-widget button.eckv3-choice {
+    font-size: 14px !important;
+  }
+  html body #eckv3-widget .eckv3-ttl {
+    font-size: 15px !important;
+  }
+  html body #eckv3-widget .eckv3-desc {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+  html body #eckv3-widget .eckv3-note,
+  html body #eckv3-widget .eckv3-helper {
+    font-size: 12.5px !important;
+  }
+  html body #eckv3-widget .eckv3-metaChip {
+    font-size: 11.5px !important;
+  }
+  html body #eckv3-widget input.eckv3-searchInput {
+    font-size: 16px !important;
+  }
+  html body #eckv3-widget .eckv3-searchBtn {
+    font-size: 13px !important;
+  }
+  html body #eckv3-widget .eckv3-launcherTip {
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  html body #eckv3-widget input.eckv3-searchInput {
+    font-size: 16px !important;
+  }
 }
 </style>
 
@@ -2013,3 +2084,6 @@ html body #eckv3-widget .eckv3-searchBtn {
   </script>
 </div>
 
+
+</body>
+</html>
