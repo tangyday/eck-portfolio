@@ -1947,6 +1947,33 @@
   </script>
 
 
+  <script>
+    (() => {
+      const projectLinks = document.querySelectorAll('#projects .grid > a.card');
+
+      projectLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          sessionStorage.setItem('returnToSelectedProjects', '1');
+        });
+      });
+
+      window.addEventListener('pageshow', () => {
+        if (sessionStorage.getItem('returnToSelectedProjects') !== '1') return;
+
+        sessionStorage.removeItem('returnToSelectedProjects');
+        history.scrollRestoration = 'manual';
+
+        requestAnimationFrame(() => {
+          const target = document.getElementById('projects');
+          if (target) {
+            target.scrollIntoView({ behavior: 'auto', block: 'start' });
+          }
+        });
+      });
+    })();
+  </script>
+
+
   <button class="back-to-top" id="back-to-top" type="button" aria-label="맨 위로 이동">↑</button>
 
 
