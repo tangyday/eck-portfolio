@@ -952,6 +952,17 @@
       white-space:nowrap;
     }
 
+    .lightbox-hint{
+      display:none;
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      color:rgba(255,255,255,.72);
+      font-size:11px;
+      white-space:nowrap;
+      pointer-events:none;
+    }
+
     @media (max-width:900px){
       .banner-grid{
         grid-template-columns:repeat(2,minmax(0,1fr));
@@ -1011,14 +1022,49 @@
       .lightbox-close{
         right:8px;
         top:8px;
+        width:28px;
+        height:28px;
         transform:none;
+        background:transparent;
+        color:#fff;
+        box-shadow:none;
+        border-radius:0;
+        font-size:20px;
+        font-weight:400;
+        text-shadow:0 1px 5px rgba(0,0,0,.5);
+      }
+
+      .lightbox-prev,
+      .lightbox-next{
+        display:none !important;
       }
 
       .lightbox-caption{
-        bottom:-34px;
+        bottom:-30px;
         max-width:90vw;
         overflow:hidden;
         text-overflow:ellipsis;
+        font-size:12px;
+      }
+
+      .lightbox-hint{
+        display:block;
+        bottom:-50px;
+      }
+
+      #app-pagination .page-btn:not(:first-child):not(:last-child){
+        display:none;
+      }
+
+      #app-pagination{
+        gap:16px;
+      }
+
+      #app-pagination .page-btn{
+        min-width:42px;
+        width:42px;
+        padding:0;
+        font-size:22px;
       }
     }
 
@@ -1711,6 +1757,7 @@
             <button class="lightbox-prev" id="lightbox-prev" type="button" aria-label="이전 이미지">‹</button>
             <button class="lightbox-next" id="lightbox-next" type="button" aria-label="다음 이미지">›</button>
             <div class="lightbox-caption" id="lightbox-caption"></div>
+            <div class="lightbox-hint">좌우로 넘겨 다음 이미지를 볼 수 있어요</div>
           </div>
         </div>
 
