@@ -611,6 +611,7 @@
     }
 
 
+
     .gallery-section{
       margin-top:92px;
     }
@@ -620,7 +621,7 @@
       align-items:end;
       justify-content:space-between;
       gap:20px;
-      margin-bottom:28px;
+      margin-bottom:36px;
     }
 
     .gallery-head h2{
@@ -633,10 +634,39 @@
       font-size:14px;
     }
 
+    .gallery-group + .gallery-group{
+      margin-top:68px;
+      padding-top:56px;
+      border-top:1px solid var(--line);
+    }
+
+    .gallery-subhead{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:20px;
+    }
+
+    .gallery-subhead h3{
+      font-size:22px;
+      letter-spacing:-.035em;
+    }
+
+    .gallery-subhead p{
+      color:var(--muted);
+      font-size:13px;
+    }
+
     .banner-grid{
       display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:18px;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .banner-grid.app-grid{
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:14px;
     }
 
     .banner-card{
@@ -646,6 +676,7 @@
       background:#fff;
       transition:.26s ease;
       box-shadow:0 1px 0 rgba(255,255,255,.8) inset;
+      cursor:pointer;
     }
 
     .banner-card:hover{
@@ -653,18 +684,35 @@
       box-shadow:var(--shadow);
     }
 
+    .banner-card.app-card .banner-media{
+      aspect-ratio:9/16;
+      background:#f3f5f8;
+    }
+
+    .banner-card.app-card .banner-media::before{
+      content:"APP SCREENSHOT";
+    }
+
+    .banner-card.app-card .banner-media img{
+      object-fit:contain;
+      background:#fff;
+    }
+
+    .banner-card.is-hidden{
+      display:none;
+    }
+
     .banner-media{
       position:relative;
       aspect-ratio:1/1;
       overflow:hidden;
-      background:
-        linear-gradient(135deg,#f2f4f8,#ffffff);
+      background:linear-gradient(135deg,#f2f4f8,#ffffff);
       display:grid;
       place-items:center;
     }
 
     .banner-media::before{
-      content:"EVENT BANNER";
+      content:"IMAGE";
       position:absolute;
       z-index:0;
       color:#c8ced8;
@@ -714,20 +762,200 @@
       font-size:13px;
     }
 
+    .gallery-empty{
+      grid-column:1/-1;
+      min-height:180px;
+      border:1.5px dashed #d9dde6;
+      border-radius:20px;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      color:var(--muted);
+      background:rgba(255,255,255,.42);
+      font-size:14px;
+      padding:28px;
+    }
+
+    .gallery-empty b{
+      display:block;
+      color:var(--text);
+      font-size:16px;
+      margin-bottom:6px;
+    }
+
+
+    .gallery-pagination{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      margin-top:26px;
+      flex-wrap:wrap;
+    }
+
+    .page-btn{
+      min-width:38px;
+      height:38px;
+      padding:0 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--text);
+      font-size:13px;
+      font-weight:800;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+
+    .page-btn:hover{
+      border-color:#cfd4dd;
+      background:#f7f8fa;
+    }
+
+    .page-btn.is-active{
+      background:var(--dark);
+      color:#fff;
+      border-color:var(--dark);
+    }
+
+    .page-btn:disabled{
+      opacity:.35;
+      cursor:default;
+      background:#fff;
+      color:var(--muted);
+    }
+
+    .page-btn:disabled:hover{
+      border-color:var(--line);
+      background:#fff;
+    }
+
+    /* Lightbox */
+    .lightbox{
+      position:fixed;
+      inset:0;
+      z-index:999;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background:rgba(8,11,18,.86);
+      backdrop-filter:blur(8px);
+      padding:28px;
+    }
+
+    .lightbox.is-open{
+      display:flex;
+    }
+
+    .lightbox-stage{
+      position:relative;
+      width:min(1180px, 94vw);
+      height:min(88vh, 900px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .lightbox-image{
+      max-width:100%;
+      max-height:100%;
+      object-fit:contain;
+      border-radius:14px;
+      box-shadow:0 26px 80px rgba(0,0,0,.38);
+      background:#fff;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next{
+      position:absolute;
+      border:0;
+      background:rgba(255,255,255,.94);
+      color:#111;
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      box-shadow:0 8px 28px rgba(0,0,0,.18);
+    }
+
+    .lightbox-close{
+      top:0;
+      right:0;
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      font-size:22px;
+      transform:translate(40%,-40%);
+    }
+
+    .lightbox-prev,
+    .lightbox-next{
+      top:50%;
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      font-size:26px;
+      transform:translateY(-50%);
+    }
+
+    .lightbox-prev{left:-66px}
+    .lightbox-next{right:-66px}
+
+    .lightbox-caption{
+      position:absolute;
+      left:50%;
+      bottom:-46px;
+      transform:translateX(-50%);
+      color:#fff;
+      font-size:13px;
+      white-space:nowrap;
+    }
+
     @media (max-width:900px){
       .banner-grid{
         grid-template-columns:repeat(2,minmax(0,1fr));
       }
+
+      .banner-grid.app-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .lightbox-prev{left:8px}
+      .lightbox-next{right:8px}
     }
 
     @media (max-width:560px){
-      .gallery-head{
+      .gallery-head,
+      .gallery-subhead{
         align-items:flex-start;
         flex-direction:column;
       }
 
-      .banner-grid{
+      .banner-grid,
+      .banner-grid.app-grid{
         grid-template-columns:1fr;
+      }
+
+      .lightbox{
+        padding:18px;
+      }
+
+      .lightbox-stage{
+        width:100%;
+        height:82vh;
+      }
+
+      .lightbox-close{
+        right:8px;
+        top:8px;
+        transform:none;
+      }
+
+      .lightbox-caption{
+        bottom:-34px;
+        max-width:90vw;
+        overflow:hidden;
+        text-overflow:ellipsis;
       }
     }
 
@@ -922,178 +1150,310 @@
             <div>
               <h2>Event Banner Gallery</h2>
             </div>
-            <p>직접 기획·제작한 프로모션 및 이벤트 배너입니다.</p>
+            <p>직접 기획·제작한 배너와 앱 화면 디자인을 모았습니다.</p>
           </div>
 
-          <div class="banner-grid">
+          <div class="gallery-group">
+            <div class="gallery-subhead">
+              <h3>월별 이벤트 배너</h3>
+              <p>최신순 · 최근 9개 우선 노출</p>
+            </div>
 
-            <article class="banner-card">
+            <div class="banner-grid" id="monthly-grid" data-page-size="8">
+            <article class="banner-card" data-gallery="monthly" data-src="./images/events/26.11.webp" data-caption="2026년 11월 이벤트">
               <div class="banner-media">
                 <img src="./images/events/26.11.webp" alt="2026년 11월 이벤트 배너" loading="lazy">
               </div>
               <div class="banner-info">
-                <small>EVENT DESIGN · 2026.11</small>
+                <small>MONTHLY EVENT · 2026.11</small>
                 <strong>2026년 11월 이벤트</strong>
-                <span>프로모션 기획 · 이벤트 배너</span>
+                <span>이벤트 기획 · 배너 디자인</span>
               </div>
             </article>
-
-            <article class="banner-card">
+            <article class="banner-card" data-gallery="monthly" data-src="./images/events/26.10.webp" data-caption="2026년 10월 이벤트">
               <div class="banner-media">
                 <img src="./images/events/26.10.webp" alt="2026년 10월 이벤트 배너" loading="lazy">
               </div>
               <div class="banner-info">
-                <small>EVENT DESIGN · 2026.10</small>
+                <small>MONTHLY EVENT · 2026.10</small>
                 <strong>2026년 10월 이벤트</strong>
-                <span>프로모션 기획 · 이벤트 배너</span>
+                <span>이벤트 기획 · 배너 디자인</span>
               </div>
             </article>
-
-            <article class="banner-card">
+            <article class="banner-card" data-gallery="monthly" data-src="./images/events/26.09.webp" data-caption="2026년 9월 이벤트">
               <div class="banner-media">
                 <img src="./images/events/26.09.webp" alt="2026년 9월 이벤트 배너" loading="lazy">
               </div>
               <div class="banner-info">
-                <small>EVENT DESIGN · 2026.09</small>
+                <small>MONTHLY EVENT · 2026.09</small>
                 <strong>2026년 9월 이벤트</strong>
-                <span>프로모션 기획 · 이벤트 배너</span>
+                <span>이벤트 기획 · 배너 디자인</span>
               </div>
             </article>
-
-            <article class="banner-card">
+            <article class="banner-card" data-gallery="monthly" data-src="./images/events/26.08.webp" data-caption="2026년 8월 이벤트">
               <div class="banner-media">
                 <img src="./images/events/26.08.webp" alt="2026년 8월 이벤트 배너" loading="lazy">
               </div>
               <div class="banner-info">
-                <small>EVENT DESIGN · 2026.08</small>
+                <small>MONTHLY EVENT · 2026.08</small>
                 <strong>2026년 8월 이벤트</strong>
-                <span>프로모션 기획 · 이벤트 배너</span>
+                <span>이벤트 기획 · 배너 디자인</span>
               </div>
             </article>
-
-            <article class="banner-card">
+            <article class="banner-card" data-gallery="monthly" data-src="./images/events/26.07.webp" data-caption="2026년 7월 이벤트">
               <div class="banner-media">
                 <img src="./images/events/26.07.webp" alt="2026년 7월 이벤트 배너" loading="lazy">
               </div>
               <div class="banner-info">
-                <small>EVENT DESIGN · 2026.07</small>
+                <small>MONTHLY EVENT · 2026.07</small>
                 <strong>2026년 7월 이벤트</strong>
-                <span>프로모션 기획 · 이벤트 배너</span>
+                <span>이벤트 기획 · 배너 디자인</span>
               </div>
             </article>
-
-            <article class="banner-card">
+            <article class="banner-card" data-gallery="monthly" data-src="./images/events/26.06.webp" data-caption="2026년 6월 이벤트">
               <div class="banner-media">
                 <img src="./images/events/26.06.webp" alt="2026년 6월 이벤트 배너" loading="lazy">
               </div>
               <div class="banner-info">
-                <small>EVENT DESIGN · 2026.06</small>
+                <small>MONTHLY EVENT · 2026.06</small>
                 <strong>2026년 6월 이벤트</strong>
-                <span>프로모션 기획 · 이벤트 배너</span>
+                <span>이벤트 기획 · 배너 디자인</span>
               </div>
             </article>
-
-            <article class="banner-card">
+            <article class="banner-card" data-gallery="monthly" data-src="./images/events/26.05.webp" data-caption="2026년 5월 이벤트">
               <div class="banner-media">
                 <img src="./images/events/26.05.webp" alt="2026년 5월 이벤트 배너" loading="lazy">
               </div>
               <div class="banner-info">
-                <small>EVENT DESIGN · 2026.05</small>
+                <small>MONTHLY EVENT · 2026.05</small>
                 <strong>2026년 5월 이벤트</strong>
-                <span>프로모션 기획 · 이벤트 배너</span>
+                <span>이벤트 기획 · 배너 디자인</span>
               </div>
             </article>
-
-            <article class="banner-card">
+            <article class="banner-card" data-gallery="monthly" data-src="./images/events/26.04.webp" data-caption="2026년 4월 이벤트">
               <div class="banner-media">
                 <img src="./images/events/26.04.webp" alt="2026년 4월 이벤트 배너" loading="lazy">
               </div>
               <div class="banner-info">
-                <small>EVENT DESIGN · 2026.04</small>
+                <small>MONTHLY EVENT · 2026.04</small>
                 <strong>2026년 4월 이벤트</strong>
-                <span>프로모션 기획 · 이벤트 배너</span>
+                <span>이벤트 기획 · 배너 디자인</span>
               </div>
             </article>
-
-            <article class="banner-card">
+            <article class="banner-card" data-gallery="monthly" data-src="./images/events/26.03.webp" data-caption="2026년 3월 이벤트">
               <div class="banner-media">
                 <img src="./images/events/26.03.webp" alt="2026년 3월 이벤트 배너" loading="lazy">
               </div>
               <div class="banner-info">
-                <small>EVENT DESIGN · 2026.03</small>
+                <small>MONTHLY EVENT · 2026.03</small>
                 <strong>2026년 3월 이벤트</strong>
-                <span>프로모션 기획 · 이벤트 배너</span>
+                <span>이벤트 기획 · 배너 디자인</span>
               </div>
             </article>
-
-            <article class="banner-card">
+            <article class="banner-card" data-gallery="monthly" data-src="./images/events/26.02.webp" data-caption="2026년 2월 이벤트">
               <div class="banner-media">
                 <img src="./images/events/26.02.webp" alt="2026년 2월 이벤트 배너" loading="lazy">
               </div>
               <div class="banner-info">
-                <small>EVENT DESIGN · 2026.02</small>
+                <small>MONTHLY EVENT · 2026.02</small>
                 <strong>2026년 2월 이벤트</strong>
-                <span>프로모션 기획 · 이벤트 배너</span>
+                <span>이벤트 기획 · 배너 디자인</span>
               </div>
             </article>
-
-            <article class="banner-card">
+            <article class="banner-card" data-gallery="monthly" data-src="./images/events/26.01.webp" data-caption="2026년 1월 이벤트">
               <div class="banner-media">
                 <img src="./images/events/26.01.webp" alt="2026년 1월 이벤트 배너" loading="lazy">
               </div>
               <div class="banner-info">
-                <small>EVENT DESIGN · 2026.01</small>
+                <small>MONTHLY EVENT · 2026.01</small>
                 <strong>2026년 1월 이벤트</strong>
-                <span>프로모션 기획 · 이벤트 배너</span>
+                <span>이벤트 기획 · 배너 디자인</span>
               </div>
             </article>
-
-            <article class="banner-card">
+            <article class="banner-card" data-gallery="monthly" data-src="./images/events/25.12.webp" data-caption="2025년 12월 이벤트">
               <div class="banner-media">
                 <img src="./images/events/25.12.webp" alt="2025년 12월 이벤트 배너" loading="lazy">
               </div>
               <div class="banner-info">
-                <small>EVENT DESIGN · 2025.12</small>
+                <small>MONTHLY EVENT · 2025.12</small>
                 <strong>2025년 12월 이벤트</strong>
-                <span>프로모션 기획 · 이벤트 배너</span>
+                <span>이벤트 기획 · 배너 디자인</span>
               </div>
             </article>
-
-            <article class="banner-card">
+            <article class="banner-card" data-gallery="monthly" data-src="./images/events/25.11.webp" data-caption="2025년 11월 이벤트">
               <div class="banner-media">
                 <img src="./images/events/25.11.webp" alt="2025년 11월 이벤트 배너" loading="lazy">
               </div>
               <div class="banner-info">
-                <small>EVENT DESIGN · 2025.11</small>
+                <small>MONTHLY EVENT · 2025.11</small>
                 <strong>2025년 11월 이벤트</strong>
-                <span>프로모션 기획 · 이벤트 배너</span>
+                <span>이벤트 기획 · 배너 디자인</span>
               </div>
             </article>
-
-            <article class="banner-card">
+            <article class="banner-card" data-gallery="monthly" data-src="./images/events/25.10.webp" data-caption="2025년 10월 이벤트">
               <div class="banner-media">
                 <img src="./images/events/25.10.webp" alt="2025년 10월 이벤트 배너" loading="lazy">
               </div>
               <div class="banner-info">
-                <small>EVENT DESIGN · 2025.10</small>
+                <small>MONTHLY EVENT · 2025.10</small>
                 <strong>2025년 10월 이벤트</strong>
-                <span>프로모션 기획 · 이벤트 배너</span>
+                <span>이벤트 기획 · 배너 디자인</span>
               </div>
             </article>
-
-            <article class="banner-card">
+            <article class="banner-card" data-gallery="monthly" data-src="./images/events/25.08.webp" data-caption="2025년 8월 이벤트">
               <div class="banner-media">
                 <img src="./images/events/25.08.webp" alt="2025년 8월 이벤트 배너" loading="lazy">
               </div>
               <div class="banner-info">
-                <small>EVENT DESIGN · 2025.08</small>
+                <small>MONTHLY EVENT · 2025.08</small>
                 <strong>2025년 8월 이벤트</strong>
-                <span>프로모션 기획 · 이벤트 배너</span>
+                <span>이벤트 기획 · 배너 디자인</span>
               </div>
             </article>
+            </div>
+            <div class="gallery-pagination" id="monthly-pagination" aria-label="월별 이벤트 페이지"></div>
+          </div>
 
+          <div class="gallery-group">
+            <div class="gallery-subhead">
+              <h3>기타 배너</h3>
+              <p>캠페인 · 프로모션 · 안내 배너</p>
+            </div>
+
+            <div class="banner-grid" id="other-grid" data-page-size="8">
+              <article class="banner-card" data-gallery="other" data-src="./images/banners/other-banner-01.webp" data-caption="평생교육이용권 신청">
+                <div class="banner-media">
+                  <img src="./images/banners/other-banner-01.webp" alt="평생교육이용권 신청" loading="lazy">
+                </div>
+                <div class="banner-info">
+                  <small>OTHER BANNER · 2026.03</small>
+                  <strong>평생교육이용권 신청</strong>
+                  <span>프로모션 기획 · 배너 디자인</span>
+                </div>
+              </article>
+
+              <article class="banner-card" data-gallery="other" data-src="./images/banners/other-banner-02.webp" data-caption="디지털 아카데미">
+                <div class="banner-media">
+                  <img src="./images/banners/other-banner-02.webp" alt="디지털 아카데미" loading="lazy">
+                </div>
+                <div class="banner-info">
+                  <small>OTHER BANNER · 2026.01</small>
+                  <strong>디지털 아카데미</strong>
+                  <span>프로모션 기획 · 배너 디자인</span>
+                </div>
+              </article>
+
+              <article class="banner-card" data-gallery="other" data-src="./images/banners/other-banner-03.webp" data-caption="평생교육 배너">
+                <div class="banner-media">
+                  <img src="./images/banners/other-banner-03.webp" alt="평생교육 배너" loading="lazy">
+                </div>
+                <div class="banner-info">
+                  <small>OTHER BANNER · 2026</small>
+                  <strong>평생교육 배너</strong>
+                  <span>프로모션 기획 · 배너 디자인</span>
+                </div>
+              </article>
+
+              <article class="banner-card" data-gallery="other" data-src="./images/banners/other-banner-04.webp" data-caption="2026 새해 인사">
+                <div class="banner-media">
+                  <img src="./images/banners/other-banner-04.webp" alt="2026 새해 인사" loading="lazy">
+                </div>
+                <div class="banner-info">
+                  <small>OTHER BANNER · 2026</small>
+                  <strong>2026 새해 인사</strong>
+                  <span>프로모션 기획 · 배너 디자인</span>
+                </div>
+              </article>
+
+              <article class="banner-card" data-gallery="other" data-src="./images/banners/other-banner-05.webp" data-caption="패키지 이벤트 배너">
+                <div class="banner-media">
+                  <img src="./images/banners/other-banner-05.webp" alt="패키지 이벤트 배너" loading="lazy">
+                </div>
+                <div class="banner-info">
+                  <small>OTHER BANNER · 2025.10</small>
+                  <strong>패키지 이벤트 배너</strong>
+                  <span>프로모션 기획 · 배너 디자인</span>
+                </div>
+              </article>
+            </div>
+            <div class="gallery-pagination" id="other-pagination" aria-label="기타 배너 페이지"></div>
+          </div>
+
+          <div class="gallery-group">
+            <div class="gallery-subhead">
+              <h3>앱 스크린샷</h3>
+              <p>앱스토어 · 플레이스토어 등록용 이미지</p>
+            </div>
+
+            <div class="banner-grid app-grid" id="app-grid" data-page-size="5">
+              <article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-01.webp" data-caption="앱 스크린샷 05">
+                <div class="banner-media">
+                  <img src="./images/app/app-shot-01.webp" alt="앱 스크린샷 05" loading="lazy">
+                </div>
+                <div class="banner-info">
+                  <small>APP SCREENSHOT · 05</small>
+                  <strong>앱 스크린샷 05</strong>
+                  <span>스토어 등록용 · 앱 화면 디자인</span>
+                </div>
+              </article>
+
+              <article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-02.webp" data-caption="앱 스크린샷 04">
+                <div class="banner-media">
+                  <img src="./images/app/app-shot-02.webp" alt="앱 스크린샷 04" loading="lazy">
+                </div>
+                <div class="banner-info">
+                  <small>APP SCREENSHOT · 04</small>
+                  <strong>앱 스크린샷 04</strong>
+                  <span>스토어 등록용 · 앱 화면 디자인</span>
+                </div>
+              </article>
+
+              <article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-03.webp" data-caption="앱 스크린샷 03">
+                <div class="banner-media">
+                  <img src="./images/app/app-shot-03.webp" alt="앱 스크린샷 03" loading="lazy">
+                </div>
+                <div class="banner-info">
+                  <small>APP SCREENSHOT · 03</small>
+                  <strong>앱 스크린샷 03</strong>
+                  <span>스토어 등록용 · 앱 화면 디자인</span>
+                </div>
+              </article>
+
+              <article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-04.webp" data-caption="앱 스크린샷 02">
+                <div class="banner-media">
+                  <img src="./images/app/app-shot-04.webp" alt="앱 스크린샷 02" loading="lazy">
+                </div>
+                <div class="banner-info">
+                  <small>APP SCREENSHOT · 02</small>
+                  <strong>앱 스크린샷 02</strong>
+                  <span>스토어 등록용 · 앱 화면 디자인</span>
+                </div>
+              </article>
+
+              <article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-05.webp" data-caption="앱 스크린샷 01">
+                <div class="banner-media">
+                  <img src="./images/app/app-shot-05.webp" alt="앱 스크린샷 01" loading="lazy">
+                </div>
+                <div class="banner-info">
+                  <small>APP SCREENSHOT · 01</small>
+                  <strong>앱 스크린샷 01</strong>
+                  <span>스토어 등록용 · 앱 화면 디자인</span>
+                </div>
+              </article>
+            </div>
+            <div class="gallery-pagination" id="app-pagination" aria-label="앱 스크린샷 페이지"></div>
           </div>
         </section>
+
+        <div class="lightbox" id="lightbox" aria-hidden="true">
+          <div class="lightbox-stage">
+            <img class="lightbox-image" id="lightbox-image" src="" alt="">
+            <button class="lightbox-close" id="lightbox-close" type="button" aria-label="닫기">×</button>
+            <button class="lightbox-prev" id="lightbox-prev" type="button" aria-label="이전 이미지">‹</button>
+            <button class="lightbox-next" id="lightbox-next" type="button" aria-label="다음 이미지">›</button>
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+          </div>
+        </div>
 
         <section class="about" id="about">
           <div>
@@ -1133,5 +1493,93 @@
       © 2026 JH PORTFOLIO. All project descriptions are for portfolio purposes.
     </div>
   </footer>
+
+  <script>
+    (() => {      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const closeBtn = document.getElementById('lightbox-close');
+      const prevBtn = document.getElementById('lightbox-prev');
+      const nextBtn = document.getElementById('lightbox-next');
+
+      let currentGroup = [];
+      let currentIndex = 0;
+
+      function getGroupCards(groupName) {
+        return [...document.querySelectorAll(`.banner-card[data-gallery="${groupName}"]`)];
+      }
+
+      function showCurrent() {
+        const card = currentGroup[currentIndex];
+        if (!card) return;
+
+        lightboxImage.src = card.dataset.src;
+        lightboxImage.alt = card.dataset.caption || '';
+        lightboxCaption.textContent = `${card.dataset.caption || ''}  ·  ${currentIndex + 1} / ${currentGroup.length}`;
+
+        const multiple = currentGroup.length > 1;
+        prevBtn.style.display = multiple ? 'grid' : 'none';
+        nextBtn.style.display = multiple ? 'grid' : 'none';
+      }
+
+      function openLightbox(card) {
+        const groupName = card.dataset.gallery;
+        currentGroup = getGroupCards(groupName);
+        currentIndex = currentGroup.indexOf(card);
+        showCurrent();
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        lightboxImage.src = '';
+      }
+
+      function move(direction) {
+        if (!currentGroup.length) return;
+        currentIndex = (currentIndex + direction + currentGroup.length) % currentGroup.length;
+        showCurrent();
+      }
+
+      document.addEventListener('click', (e) => {
+        const card = e.target.closest('.banner-card[data-gallery]');
+        if (card) openLightbox(card);
+      });
+
+      closeBtn.addEventListener('click', closeLightbox);
+      prevBtn.addEventListener('click', () => move(-1));
+      nextBtn.addEventListener('click', () => move(1));
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') move(-1);
+        if (e.key === 'ArrowRight') move(1);
+      });
+
+      let touchStartX = null;
+      lightbox.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].clientX;
+      }, { passive: true });
+
+      lightbox.addEventListener('touchend', (e) => {
+        if (touchStartX === null) return;
+        const diff = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(diff) > 50) {
+          move(diff > 0 ? -1 : 1);
+        }
+        touchStartX = null;
+      }, { passive: true });
+    })();
+  </script>
+
 </body>
 </html>
