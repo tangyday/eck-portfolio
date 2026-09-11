@@ -57,12 +57,33 @@
     }
 
     .brand{
-      font-size:18px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:16px;
       font-weight:800;
-      letter-spacing:-.03em;
+      letter-spacing:-.02em;
     }
 
-    .brand span{color:var(--accent)}
+    .brand-mark{
+      width:38px;
+      height:38px;
+      display:grid;
+      place-items:center;
+      border-radius:12px;
+      background:var(--dark);
+      color:#fff;
+      font-size:14px;
+      font-weight:900;
+      letter-spacing:-.04em;
+      box-shadow:0 8px 20px rgba(16,19,26,.12);
+    }
+
+    .brand-name{
+      color:var(--text);
+      letter-spacing:.08em;
+      font-size:13px;
+    }
 
     .nav-links{
       display:flex;
@@ -168,7 +189,8 @@
     .thumb{
       aspect-ratio:16/10;
       display:flex;
-      align-items:flex-end;
+      align-items:center;
+      justify-content:center;
       padding:24px;
       position:relative;
       overflow:hidden;
@@ -179,46 +201,346 @@
       position:absolute;
       inset:0;
       background:
-        linear-gradient(145deg,rgba(255,255,255,.38),transparent 42%),
-        radial-gradient(circle at 80% 20%,rgba(255,255,255,.55),transparent 20%);
+        linear-gradient(145deg,rgba(255,255,255,.32),transparent 44%),
+        radial-gradient(circle at 82% 18%,rgba(255,255,255,.46),transparent 22%);
+      pointer-events:none;
     }
 
     .thumb.business{
-      background:linear-gradient(135deg,#e54b43,#ff8a5a 56%,#ffc27b);
+      background:linear-gradient(135deg,#f07b62 0%,#f6a67c 55%,#ffd2aa 100%);
     }
 
     .thumb.chatbot{
-      background:linear-gradient(135deg,#315eea,#54a7ff 58%,#a8ddff);
+      background:linear-gradient(135deg,#3268e8 0%,#5aa8ff 54%,#b9e4ff 100%);
     }
 
-    .mock{
+    .thumb-image-wrap{
       position:relative;
       z-index:1;
-      width:100%;
-      background:rgba(255,255,255,.92);
-      border-radius:18px 18px 8px 8px;
-      padding:20px;
-      box-shadow:0 24px 50px rgba(0,0,0,.14);
+      width:94%;
+      height:86%;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 26px 60px rgba(20,33,60,.18);
+      border:1px solid rgba(255,255,255,.72);
+      background:#fff;
     }
 
-    .mock-top{
+    .thumb-image{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      object-position:top center;
+      background:#fff;
+    }
+
+    .screen{
+      position:relative;
+      z-index:1;
+      width:94%;
+      height:86%;
+      background:#fff;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.72);
+      box-shadow:0 26px 60px rgba(20,33,60,.18);
+      transform:perspective(900px) rotateX(1.2deg);
+    }
+
+    .browser-bar{
+      height:28px;
       display:flex;
+      align-items:center;
       gap:6px;
+      padding:0 12px;
+      background:#f5f6f8;
+      border-bottom:1px solid #eceff3;
+    }
+
+    .browser-dot{
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:#d6dae2;
+    }
+
+    .browser-url{
+      margin-left:8px;
+      height:10px;
+      width:42%;
+      border-radius:999px;
+      background:#e6e9ee;
+    }
+
+    /* Landing page thumbnail */
+    .landing-body{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      height:calc(100% - 28px);
+      background:linear-gradient(135deg,#fffaf7,#ffffff);
+    }
+
+    .landing-copy{
+      padding:22px 14px 16px 20px;
+    }
+
+    .landing-kicker{
+      width:46px;
+      height:8px;
+      border-radius:999px;
+      background:#f19577;
+      margin-bottom:12px;
+    }
+
+    .landing-title{
+      width:86%;
+      height:13px;
+      border-radius:5px;
+      background:#20242b;
+      margin-bottom:7px;
+    }
+
+    .landing-title.short{width:62%}
+
+    .landing-desc{
+      width:92%;
+      height:6px;
+      border-radius:999px;
+      background:#dfe3e8;
+      margin-top:9px;
+    }
+
+    .landing-desc.short{width:72%}
+
+    .landing-btn{
+      width:74px;
+      height:22px;
+      border-radius:7px;
+      background:#ef6f55;
+      margin-top:16px;
+    }
+
+    .landing-mini-cards{
+      display:flex;
+      gap:5px;
+      margin-top:18px;
+    }
+
+    .landing-mini-cards span{
+      width:42px;
+      height:31px;
+      border-radius:7px;
+      background:#fff;
+      border:1px solid #eceff2;
+      box-shadow:0 4px 10px rgba(32,36,43,.05);
+    }
+
+    .landing-visual{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 58% 40%,rgba(244,148,111,.23),transparent 31%),
+        linear-gradient(160deg,#fff4ed,#ffe4d1);
+    }
+
+    .landing-phone{
+      position:absolute;
+      width:46%;
+      height:72%;
+      left:28%;
+      top:14%;
+      border-radius:16px;
+      background:#20242a;
+      padding:5px;
+      box-shadow:0 16px 30px rgba(55,39,30,.18);
+      transform:rotate(6deg);
+    }
+
+    .landing-phone::before{
+      content:"";
+      position:absolute;
+      inset:5px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#fff,#fff7f2);
+    }
+
+    .landing-phone::after{
+      content:"";
+      position:absolute;
+      left:18%;
+      right:18%;
+      top:23%;
+      height:34%;
+      border-radius:10px;
+      background:linear-gradient(135deg,#f27d62,#ffbd82);
+      box-shadow:0 44px 0 -7px #f0f2f5;
+    }
+
+    .floating-card{
+      position:absolute;
+      width:54px;
+      height:37px;
+      border-radius:9px;
+      background:#fff;
+      box-shadow:0 8px 18px rgba(70,52,40,.12);
+    }
+
+    .floating-card.one{right:9%;top:20%}
+    .floating-card.two{left:7%;bottom:15%;width:45px;height:32px}
+
+    /* Chatbot thumbnail */
+    .chat-layout{
+      display:grid;
+      grid-template-columns:32% 68%;
+      height:calc(100% - 28px);
+      background:#f8fafc;
+    }
+
+    .chat-sidebar{
+      padding:14px 10px;
+      background:#f2f5f9;
+      border-right:1px solid #e8edf3;
+    }
+
+    .chat-logo{
+      width:34px;
+      height:10px;
+      border-radius:999px;
+      background:#5b86f7;
       margin-bottom:18px;
     }
 
-    .dot{
-      width:8px;height:8px;border-radius:50%;
-      background:#dfe3ea;
+    .chat-menu{
+      height:7px;
+      border-radius:999px;
+      background:#d8dee8;
+      margin-bottom:10px;
     }
 
-    .mock-line{
-      height:10px;border-radius:999px;background:#e9edf4;margin-top:8px;
+    .chat-menu.short{width:66%}
+
+    .chat-main{
+      padding:12px 14px;
+      display:flex;
+      flex-direction:column;
+      background:linear-gradient(180deg,#ffffff,#f8fbff);
     }
 
-    .mock-line.sm{width:42%}
-    .mock-line.md{width:67%}
-    .mock-line.lg{width:86%}
+    .chat-header{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding-bottom:9px;
+      border-bottom:1px solid #edf0f4;
+    }
+
+    .chat-avatar{
+      width:25px;
+      height:25px;
+      border-radius:50%;
+      background:linear-gradient(135deg,#4b78ed,#7cc9ff);
+      position:relative;
+    }
+
+    .chat-avatar::after{
+      content:"";
+      position:absolute;
+      width:8px;height:6px;
+      right:-1px;bottom:0;
+      background:#7cc9ff;
+      clip-path:polygon(0 0,100% 0,100% 100%);
+    }
+
+    .chat-name{
+      width:56px;
+      height:8px;
+      border-radius:999px;
+      background:#cfd6df;
+    }
+
+    .messages{
+      flex:1;
+      padding-top:10px;
+      display:flex;
+      flex-direction:column;
+      gap:7px;
+    }
+
+    .bubble{
+      max-width:76%;
+      padding:8px 10px;
+      border-radius:12px;
+      font-size:0;
+    }
+
+    .bubble::before,
+    .bubble::after{
+      content:"";
+      display:block;
+      height:5px;
+      border-radius:999px;
+    }
+
+    .bubble.bot{
+      align-self:flex-start;
+      background:#edf3ff;
+      border-bottom-left-radius:4px;
+    }
+
+    .bubble.bot::before{width:68px;background:#aab8d3}
+    .bubble.bot::after{width:46px;background:#c5cfdf;margin-top:5px}
+
+    .bubble.user{
+      align-self:flex-end;
+      background:#4c7df0;
+      border-bottom-right-radius:4px;
+    }
+
+    .bubble.user::before{width:54px;background:rgba(255,255,255,.86)}
+    .bubble.user::after{width:34px;background:rgba(255,255,255,.6);margin-top:5px}
+
+    .quick-replies{
+      display:flex;
+      gap:5px;
+      margin-top:1px;
+    }
+
+    .quick-replies span{
+      width:46px;
+      height:17px;
+      border:1px solid #cfdaf4;
+      border-radius:999px;
+      background:#fff;
+    }
+
+    .chat-input{
+      margin-top:auto;
+      height:25px;
+      border-radius:999px;
+      border:1px solid #e0e5ec;
+      background:#fff;
+      position:relative;
+    }
+
+    .chat-input::before{
+      content:"";
+      position:absolute;
+      left:10px;top:9px;
+      width:48%;
+      height:5px;
+      background:#e1e5eb;
+      border-radius:999px;
+    }
+
+    .chat-input::after{
+      content:"";
+      position:absolute;
+      right:4px;top:4px;
+      width:17px;height:17px;
+      border-radius:50%;
+      background:#4c7df0;
+    }
 
     .card-body{padding:28px}
     .card-top{
@@ -382,7 +704,7 @@
 <body>
   <header>
     <div class="wrap nav">
-      <a class="brand" href="./">PORTFOLIO<span>.</span></a>
+      <a class="brand" href="./"><span class="brand-mark">JH</span><span class="brand-name">PORTFOLIO</span></a>
       <nav class="nav-links">
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
@@ -424,13 +746,8 @@
           <!-- 프로젝트 1 -->
           <a class="card" href="./projects/eck-business/">
             <div class="thumb business">
-              <div class="mock">
-                <div class="mock-top">
-                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                </div>
-                <div class="mock-line sm"></div>
-                <div class="mock-line lg"></div>
-                <div class="mock-line md"></div>
+              <div class="thumb-image-wrap" aria-hidden="true">
+                <img class="thumb-image" src="./images/landing-thumbnail.webp" alt="기업 전용 외국어 구독 서비스 랜딩페이지 썸네일" />
               </div>
             </div>
             <div class="card-body">
@@ -457,13 +774,8 @@
           <!-- 프로젝트 2 -->
           <a class="card" href="./projects/chatbot/">
             <div class="thumb chatbot">
-              <div class="mock">
-                <div class="mock-top">
-                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                </div>
-                <div class="mock-line md"></div>
-                <div class="mock-line lg"></div>
-                <div class="mock-line sm"></div>
+              <div class="thumb-image-wrap" aria-hidden="true">
+                <img class="thumb-image" src="./images/chatbot-thumbnail.webp" alt="온라인강좌 학습지원 챗봇 썸네일" />
               </div>
             </div>
             <div class="card-body">
@@ -532,7 +844,7 @@
 
   <footer>
     <div class="wrap">
-      © 2026 Portfolio. All project descriptions are for portfolio purposes.
+      © 2026 JH PORTFOLIO. All project descriptions are for portfolio purposes.
     </div>
   </footer>
 </body>
