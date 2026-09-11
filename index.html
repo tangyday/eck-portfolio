@@ -984,29 +984,39 @@
       word-break:keep-all;
     }
 
-    .about-side{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-    }
-
-    .stat{
-      padding:20px;
+    .about-contact{
+      min-height:132px;
+      padding:24px;
       border-radius:18px;
       background:#191d26;
       border:1px solid #242a35;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:flex-start;
     }
 
-    .stat b{
-      display:block;
-      font-size:20px;
-      margin-bottom:4px;
-    }
-
-    .stat span{
-      font-size:12px;
+    .about-contact span{
       color:#949dab;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.12em;
+      margin-bottom:8px;
     }
+
+    .about-contact a{
+      color:#fff;
+      font-size:17px;
+      font-weight:750;
+      letter-spacing:-.02em;
+      transition:.2s ease;
+      word-break:break-all;
+    }
+
+    .about-contact a:hover{
+      color:#ff7a63;
+    }
+
 
 
 
@@ -1055,7 +1065,7 @@
     }
 
     .document-cover{
-      aspect-ratio:4/3;
+      aspect-ratio:16/9;
       display:grid;
       place-items:center;
       background:linear-gradient(135deg,#f2f4f8,#fff);
@@ -1138,41 +1148,6 @@
       }
     }
 
-    .contact-section{
-      margin-top:72px;
-      padding:26px 0 6px;
-      border-top:1px solid var(--line);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
-
-    .contact-label{
-      color:var(--muted);
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.12em;
-    }
-
-    .contact-email{
-      color:var(--text);
-      font-size:15px;
-      font-weight:700;
-      transition:.2s ease;
-    }
-
-    .contact-email:hover{
-      color:var(--accent);
-    }
-
-    @media (max-width:560px){
-      .contact-section{
-        align-items:flex-start;
-        flex-direction:column;
-        gap:8px;
-      }
-    }
 
     footer{
       padding:36px 0 54px;
@@ -1197,7 +1172,6 @@
       h1{font-size:44px}
       .hero p{font-size:16px}
       .card-body{padding:22px}
-      .about-side{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -1554,9 +1528,9 @@
             </div>
 
             <div class="banner-grid app-grid" id="app-grid" data-page-size="5">
-<article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-05.webp" data-caption="온라인강좌 어플 스크린샷 01">
+<article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-01.webp" data-caption="온라인강좌 어플 스크린샷 01">
                 <div class="banner-media">
-                  <img src="./images/app/app-shot-05.webp" alt="온라인강좌 어플 스크린샷 01" loading="lazy">
+                  <img src="./images/app/app-shot-01.webp" alt="온라인강좌 어플 스크린샷 01" loading="lazy">
                 </div>
                 <div class="banner-info">
                   <small>APP SCREENSHOT · 01</small>
@@ -1565,9 +1539,9 @@
                 </div>
               </article>
 
-<article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-04.webp" data-caption="온라인강좌 어플 스크린샷 02">
+<article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-02.webp" data-caption="온라인강좌 어플 스크린샷 02">
                 <div class="banner-media">
-                  <img src="./images/app/app-shot-04.webp" alt="온라인강좌 어플 스크린샷 02" loading="lazy">
+                  <img src="./images/app/app-shot-02.webp" alt="온라인강좌 어플 스크린샷 02" loading="lazy">
                 </div>
                 <div class="banner-info">
                   <small>APP SCREENSHOT · 02</small>
@@ -1587,9 +1561,9 @@
                 </div>
               </article>
 
-<article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-02.webp" data-caption="온라인강좌 어플 스크린샷 04">
+<article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-04.webp" data-caption="온라인강좌 어플 스크린샷 04">
                 <div class="banner-media">
-                  <img src="./images/app/app-shot-02.webp" alt="온라인강좌 어플 스크린샷 04" loading="lazy">
+                  <img src="./images/app/app-shot-04.webp" alt="온라인강좌 어플 스크린샷 04" loading="lazy">
                 </div>
                 <div class="banner-info">
                   <small>APP SCREENSHOT · 04</small>
@@ -1598,9 +1572,9 @@
                 </div>
               </article>
 
-<article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-01.webp" data-caption="온라인강좌 어플 스크린샷 05">
+<article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-05.webp" data-caption="온라인강좌 어플 스크린샷 05">
                 <div class="banner-media">
-                  <img src="./images/app/app-shot-01.webp" alt="온라인강좌 어플 스크린샷 05" loading="lazy">
+                  <img src="./images/app/app-shot-05.webp" alt="온라인강좌 어플 스크린샷 05" loading="lazy">
                 </div>
                 <div class="banner-info">
                   <small>APP SCREENSHOT · 05</small>
@@ -1666,32 +1640,12 @@
             </p>
           </div>
 
-          <div class="about-side">
-            <div class="stat">
-              <b>Planning</b>
-              <span>서비스 / 콘텐츠 구조</span>
-            </div>
-            <div class="stat">
-              <b>Publishing</b>
-              <span>HTML / CSS / JS</span>
-            </div>
-            <div class="stat">
-              <b>Operation</b>
-              <span>교육서비스 운영</span>
-            </div>
-            <div class="stat">
-              <b>Improvement</b>
-              <span>사용자 관점 개선</span>
-            </div>
+          <div class="about-contact" id="contact">
+            <span>CONTACT</span>
+            <a href="mailto:ashtree429@naver.com">ashtree429@naver.com</a>
           </div>
         </section>
-      
-        <section class="contact-section" id="contact">
-          <div class="contact-label">CONTACT</div>
-          <a class="contact-email" href="mailto:ashtree429@naver.com">ashtree429@naver.com</a>
-        </section>
-
-      </div>
+</div>
     </section>
   </main>
 
