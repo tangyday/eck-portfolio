@@ -989,8 +989,24 @@
       }
 
       .banner-grid.app-grid{
-        grid-template-columns:1fr;
-        gap:14px;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:10px;
+        touch-action:pan-y;
+      }
+
+      .banner-grid.app-grid .banner-info{
+        padding:10px 9px 11px;
+      }
+
+      .banner-grid.app-grid .banner-info small{
+        font-size:7px;
+        margin-bottom:4px;
+      }
+
+      .banner-grid.app-grid .banner-info strong{
+        font-size:12px;
+        white-space:normal;
+        line-height:1.35;
       }
 
       .banner-grid:not(.app-grid) .banner-info{
@@ -1664,7 +1680,7 @@
               <p>앱스토어 · 플레이스토어 등록용 이미지</p>
             </div>
 
-            <div class="banner-grid app-grid" id="app-grid" data-page-size="5" data-mobile-page-size="1">
+            <div class="banner-grid app-grid" id="app-grid" data-page-size="5" data-mobile-page-size="2">
 <article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-01.webp" data-caption="온라인강좌 어플 스크린샷 01">
                 <div class="banner-media">
                   <img src="./images/app/app-shot-01.webp" alt="온라인강좌 어플 스크린샷 01" loading="lazy">
@@ -1867,6 +1883,40 @@
           );
 
           lastPageSize = pageSize;
+        }
+
+        // 모바일 앱 스크린샷: 카드를 누르지 않은 상태에서도 좌우 스와이프로 페이지 이동
+        if (gridId === 'app-grid') {
+          let touchStartX = 0;
+          let touchStartY = 0;
+
+          grid.addEventListener('touchstart', (e) => {
+            if (!window.matchMedia('(max-width: 560px)').matches) return;
+            const touch = e.changedTouches[0];
+            touchStartX = touch.clientX;
+            touchStartY = touch.clientY;
+          }, { passive: true });
+
+          grid.addEventListener('touchend', (e) => {
+            if (!window.matchMedia('(max-width: 560px)').matches) return;
+            const touch = e.changedTouches[0];
+            const dx = touch.clientX - touchStartX;
+            const dy = touch.clientY - touchStartY;
+
+            // 세로 스크롤과 구분해 가로 스와이프만 처리
+            if (Math.abs(dx) < 45 || Math.abs(dx) <= Math.abs(dy)) return;
+
+            const pageSize = getPageSize();
+            const totalPages = Math.max(1, Math.ceil(cards.length / pageSize));
+
+            if (dx < 0 && currentPage < totalPages) {
+              currentPage += 1;
+              render();
+            } else if (dx > 0 && currentPage > 1) {
+              currentPage -= 1;
+              render();
+            }
+          }, { passive: true });
         }
 
         let resizeTimer;
