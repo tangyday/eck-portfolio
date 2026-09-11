@@ -1008,6 +1008,82 @@
       color:#949dab;
     }
 
+
+    .contact-section{
+      margin-top:88px;
+      padding:42px 44px;
+      border-radius:28px;
+      background:#fff;
+      border:1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:28px;
+      box-shadow:0 12px 36px rgba(23,26,33,.05);
+    }
+
+    .contact-copy small{
+      display:block;
+      color:var(--accent);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.08em;
+      margin-bottom:9px;
+    }
+
+    .contact-copy h2{
+      font-size:30px;
+      line-height:1.25;
+      letter-spacing:-.04em;
+    }
+
+    .contact-copy p{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .contact-email{
+      flex:0 0 auto;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 18px;
+      border-radius:999px;
+      background:var(--dark);
+      color:#fff;
+      font-size:14px;
+      font-weight:800;
+      transition:.2s ease;
+    }
+
+    .contact-email:hover{
+      transform:translateY(-2px);
+      opacity:.9;
+    }
+
+    .contact-email::after{
+      content:"↗";
+      font-size:15px;
+    }
+
+    @media (max-width:760px){
+      .contact-section{
+        align-items:flex-start;
+        flex-direction:column;
+        padding:30px 24px;
+      }
+
+      .contact-copy h2{
+        font-size:26px;
+      }
+
+      .contact-email{
+        width:100%;
+        justify-content:center;
+      }
+    }
+
     footer{
       padding:36px 0 54px;
       color:#9097a5;
@@ -1043,6 +1119,7 @@
         <a href="#projects">Projects</a>
         <a href="#event-gallery">Gallery</a>
         <a href="#about">About</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -1159,7 +1236,7 @@
               <p>최신순 · 최근 9개 우선 노출</p>
             </div>
 
-            <div class="banner-grid" id="monthly-grid" data-page-size="8">
+            <div class="banner-grid" id="monthly-grid" data-page-size="12">
             <article class="banner-card" data-gallery="monthly" data-src="./images/events/26.11.webp" data-caption="2026년 11월 이벤트">
               <div class="banner-media">
                 <img src="./images/events/26.11.webp" alt="2026년 11월 이벤트 배너" loading="lazy">
@@ -1386,57 +1463,57 @@
             </div>
 
             <div class="banner-grid app-grid" id="app-grid" data-page-size="5">
-              <article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-01.webp" data-caption="앱 스크린샷 05">
+<article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-05.webp" data-caption="온라인강좌 어플 스크린샷 01">
                 <div class="banner-media">
-                  <img src="./images/app/app-shot-01.webp" alt="앱 스크린샷 05" loading="lazy">
-                </div>
-                <div class="banner-info">
-                  <small>APP SCREENSHOT · 05</small>
-                  <strong>앱 스크린샷 05</strong>
-                  <span>스토어 등록용 · 앱 화면 디자인</span>
-                </div>
-              </article>
-
-              <article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-02.webp" data-caption="앱 스크린샷 04">
-                <div class="banner-media">
-                  <img src="./images/app/app-shot-02.webp" alt="앱 스크린샷 04" loading="lazy">
-                </div>
-                <div class="banner-info">
-                  <small>APP SCREENSHOT · 04</small>
-                  <strong>앱 스크린샷 04</strong>
-                  <span>스토어 등록용 · 앱 화면 디자인</span>
-                </div>
-              </article>
-
-              <article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-03.webp" data-caption="앱 스크린샷 03">
-                <div class="banner-media">
-                  <img src="./images/app/app-shot-03.webp" alt="앱 스크린샷 03" loading="lazy">
-                </div>
-                <div class="banner-info">
-                  <small>APP SCREENSHOT · 03</small>
-                  <strong>앱 스크린샷 03</strong>
-                  <span>스토어 등록용 · 앱 화면 디자인</span>
-                </div>
-              </article>
-
-              <article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-04.webp" data-caption="앱 스크린샷 02">
-                <div class="banner-media">
-                  <img src="./images/app/app-shot-04.webp" alt="앱 스크린샷 02" loading="lazy">
-                </div>
-                <div class="banner-info">
-                  <small>APP SCREENSHOT · 02</small>
-                  <strong>앱 스크린샷 02</strong>
-                  <span>스토어 등록용 · 앱 화면 디자인</span>
-                </div>
-              </article>
-
-              <article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-05.webp" data-caption="앱 스크린샷 01">
-                <div class="banner-media">
-                  <img src="./images/app/app-shot-05.webp" alt="앱 스크린샷 01" loading="lazy">
+                  <img src="./images/app/app-shot-05.webp" alt="온라인강좌 어플 스크린샷 01" loading="lazy">
                 </div>
                 <div class="banner-info">
                   <small>APP SCREENSHOT · 01</small>
-                  <strong>앱 스크린샷 01</strong>
+                  <strong>온라인강좌 어플 스크린샷 01</strong>
+                  <span>스토어 등록용 · 앱 화면 디자인</span>
+                </div>
+              </article>
+
+<article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-04.webp" data-caption="온라인강좌 어플 스크린샷 02">
+                <div class="banner-media">
+                  <img src="./images/app/app-shot-04.webp" alt="온라인강좌 어플 스크린샷 02" loading="lazy">
+                </div>
+                <div class="banner-info">
+                  <small>APP SCREENSHOT · 02</small>
+                  <strong>온라인강좌 어플 스크린샷 02</strong>
+                  <span>스토어 등록용 · 앱 화면 디자인</span>
+                </div>
+              </article>
+
+<article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-03.webp" data-caption="온라인강좌 어플 스크린샷 03">
+                <div class="banner-media">
+                  <img src="./images/app/app-shot-03.webp" alt="온라인강좌 어플 스크린샷 03" loading="lazy">
+                </div>
+                <div class="banner-info">
+                  <small>APP SCREENSHOT · 03</small>
+                  <strong>온라인강좌 어플 스크린샷 03</strong>
+                  <span>스토어 등록용 · 앱 화면 디자인</span>
+                </div>
+              </article>
+
+<article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-02.webp" data-caption="온라인강좌 어플 스크린샷 04">
+                <div class="banner-media">
+                  <img src="./images/app/app-shot-02.webp" alt="온라인강좌 어플 스크린샷 04" loading="lazy">
+                </div>
+                <div class="banner-info">
+                  <small>APP SCREENSHOT · 04</small>
+                  <strong>온라인강좌 어플 스크린샷 04</strong>
+                  <span>스토어 등록용 · 앱 화면 디자인</span>
+                </div>
+              </article>
+
+<article class="banner-card app-card" data-gallery="app" data-src="./images/app/app-shot-01.webp" data-caption="온라인강좌 어플 스크린샷 05">
+                <div class="banner-media">
+                  <img src="./images/app/app-shot-01.webp" alt="온라인강좌 어플 스크린샷 05" loading="lazy">
+                </div>
+                <div class="banner-info">
+                  <small>APP SCREENSHOT · 05</small>
+                  <strong>온라인강좌 어플 스크린샷 05</strong>
                   <span>스토어 등록용 · 앱 화면 디자인</span>
                 </div>
               </article>
@@ -1484,6 +1561,16 @@
             </div>
           </div>
         </section>
+      
+        <section class="contact-section" id="contact">
+          <div class="contact-copy">
+            <small>CONTACT</small>
+            <h2>함께 이야기하고 싶은 일이 있다면<br>편하게 연락해주세요.</h2>
+            <p>웹 기획 · 콘텐츠 구성 · 랜딩페이지 · 프로모션 작업 문의</p>
+          </div>
+          <a class="contact-email" href="mailto:ashtree429@naver.com">ashtree429@naver.com</a>
+        </section>
+
       </div>
     </section>
   </main>
@@ -1495,7 +1582,74 @@
   </footer>
 
   <script>
-    (() => {      const lightbox = document.getElementById('lightbox');
+    (() => {
+
+      function setupPagination(gridId, paginationId) {
+        const grid = document.getElementById(gridId);
+        const pagination = document.getElementById(paginationId);
+        if (!grid || !pagination) return;
+
+        const cards = [...grid.querySelectorAll('.banner-card')];
+        const pageSize = Number(grid.dataset.pageSize || 8);
+        const totalPages = Math.max(1, Math.ceil(cards.length / pageSize));
+        let currentPage = 1;
+
+        function makeButton(label, page, active = false, disabled = false) {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'page-btn';
+          btn.textContent = label;
+          if (active) btn.classList.add('is-active');
+          btn.disabled = disabled;
+
+          btn.addEventListener('click', () => {
+            if (disabled || page === currentPage) return;
+            currentPage = page;
+            render();
+
+            const group = grid.closest('.gallery-group');
+            if (group) {
+              const y = group.getBoundingClientRect().top + window.scrollY - 90;
+              window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+          });
+
+          return btn;
+        }
+
+        function render() {
+          const start = (currentPage - 1) * pageSize;
+          const end = start + pageSize;
+
+          cards.forEach((card, index) => {
+            card.style.display = (index >= start && index < end) ? '' : 'none';
+          });
+
+          pagination.innerHTML = '';
+
+          pagination.appendChild(
+            makeButton('‹', Math.max(1, currentPage - 1), false, currentPage === 1)
+          );
+
+          for (let page = 1; page <= totalPages; page++) {
+            pagination.appendChild(
+              makeButton(String(page), page, page === currentPage, false)
+            );
+          }
+
+          pagination.appendChild(
+            makeButton('›', Math.min(totalPages, currentPage + 1), false, currentPage === totalPages)
+          );
+        }
+
+        render();
+      }
+
+      setupPagination('monthly-grid', 'monthly-pagination');
+      setupPagination('other-grid', 'other-pagination');
+      setupPagination('app-grid', 'app-pagination');
+
+      const lightbox = document.getElementById('lightbox');
       const lightboxImage = document.getElementById('lightbox-image');
       const lightboxCaption = document.getElementById('lightbox-caption');
       const closeBtn = document.getElementById('lightbox-close');
