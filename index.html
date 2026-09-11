@@ -2000,21 +2000,38 @@
 
       projectLinks.forEach((link) => {
         link.addEventListener('click', () => {
+          // 뒤로가기 시 처음부터 Selected Projects 위치에서 열리도록
+          // 현재 포트폴리오 히스토리 주소에 앵커를 미리 기록합니다.
           sessionStorage.setItem('returnToSelectedProjects', '1');
+          const returnUrl = `${location.pathname}${location.search}#projects`;
+          history.replaceState(history.state, '', returnUrl);
         });
       });
 
       window.addEventListener('pageshow', () => {
-        if (sessionStorage.getItem('returnToSelectedProjects') !== '1') return;
+        if (sessionStorage.getItem('returnToSelectedProjects') !== '1' && location.hash !== '#projects') return;
 
         sessionStorage.removeItem('returnToSelectedProjects');
         history.scrollRestoration = 'manual';
 
+        const root = document.documentElement;
+        const previousBehavior = root.style.scrollBehavior;
+        root.style.setProperty('scroll-behavior', 'auto', 'important');
+
+        const target = document.getElementById('projects');
+        if (target) {
+          // CSS의 smooth 설정을 타지 않도록 좌표로 즉시 이동
+          window.scrollTo(0, target.offsetTop);
+        }
+
         requestAnimationFrame(() => {
-          const target = document.getElementById('projects');
-          if (target) {
-            target.scrollIntoView({ behavior: 'auto', block: 'start' });
-          }
+          requestAnimationFrame(() => {
+            if (previousBehavior) {
+              root.style.scrollBehavior = previousBehavior;
+            } else {
+              root.style.removeProperty('scroll-behavior');
+            }
+          });
         });
       });
     })();
