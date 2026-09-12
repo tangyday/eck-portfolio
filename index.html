@@ -221,77 +221,8 @@
     .thumb.chatbot{
       background:linear-gradient(135deg,#6e9ef1 0%,#90bdfd 54%,#d9edff 100%);
     }
-
     .thumb.wedding{
       background:linear-gradient(135deg,#f5d8dc 0%,#f8e7e8 52%,#fff7f3 100%);
-    }
-
-    .wedding-preview{
-      position:relative;
-      z-index:1;
-      width:76%;
-      height:88%;
-      border-radius:22px;
-      background:linear-gradient(180deg,#fffdfb 0%,#fff8f5 100%);
-      border:1px solid rgba(255,255,255,.88);
-      box-shadow:0 18px 44px rgba(101,61,67,.16);
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:22px;
-    }
-
-    .wedding-preview::before,
-    .wedding-preview::after{
-      content:"";
-      position:absolute;
-      border-radius:50%;
-      background:rgba(197,126,138,.12);
-      filter:blur(.2px);
-    }
-
-    .wedding-preview::before{width:130px;height:130px;left:-55px;top:-45px}
-    .wedding-preview::after{width:110px;height:110px;right:-44px;bottom:-40px}
-
-    .wedding-preview .mini-script{
-      position:relative;
-      z-index:1;
-      font-family:Georgia,"Times New Roman",serif;
-      font-style:italic;
-      font-size:clamp(17px,2.1vw,28px);
-      line-height:1.1;
-      color:#9d646d;
-      letter-spacing:-.03em;
-    }
-
-    .wedding-preview .mini-line{
-      position:relative;
-      z-index:1;
-      width:34px;
-      height:1px;
-      background:#dcb5b9;
-      margin:15px 0 12px;
-    }
-
-    .wedding-preview .mini-names{
-      position:relative;
-      z-index:1;
-      font-size:11px;
-      font-weight:800;
-      letter-spacing:.16em;
-      color:#493d40;
-    }
-
-    .wedding-preview .mini-date{
-      position:relative;
-      z-index:1;
-      margin-top:8px;
-      font-size:9px;
-      color:#9d8b8e;
-      letter-spacing:.08em;
     }
 
     .thumb-image-wrap{
@@ -1523,22 +1454,18 @@
               </div>
             </div>
           </a>
-
           <!-- 프로젝트 3 -->
           <a class="card" href="https://tangyday.github.io/tangycat/projects/romantic-pink/">
             <div class="thumb wedding">
-              <div class="wedding-preview" aria-hidden="true">
-                <div class="mini-script">We're getting married</div>
-                <div class="mini-line"></div>
-                <div class="mini-names">ROMANTIC PINK</div>
-                <div class="mini-date">MOBILE WEDDING INVITATION</div>
+              <div class="thumb-image-wrap" aria-hidden="true">
+                <img class="thumb-image" src="./images/romantic-pink-thumbnail.webp" alt="Tangy Cat 모바일 청첩장 썸네일" />
               </div>
             </div>
             <div class="card-body">
               <div class="card-top">
                 <div>
                   <div class="tag">PERSONAL · MOBILE WEB</div>
-                  <h3>Tangy Cat 모바일 청첩장</h3>
+                  <h3>Romantic pink 감성 모바일 청첩장</h3>
                 </div>
                 <div class="arrow">↗</div>
               </div>
